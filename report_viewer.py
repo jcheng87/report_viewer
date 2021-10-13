@@ -15,11 +15,17 @@ if file_upload is not None:
     columns_selected = st.multiselect("Column Names:",
                                         data_columns,
                                         )
-new_report = convert_report(data)
 
-st.download_button("Download", 
-                    data=new_report,
-                    file_name = 'report.csv'
+run_report_button = st.button("Run Report")
+
+if run_report_button: 
+    new_report = convert_report(data)
+
+
+
+    st.download_button("Download", 
+                        data=new_report,
+                        file_name = 'report.csv'
 )
 
 
